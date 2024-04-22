@@ -99,6 +99,7 @@ const Cover = () => {
         ledLightList.map((wall, index) => (
             <>
             <ScrollView
+                key={index}
                 horizontal
                 showsHorizontalScrollIndicator={false}
                 contentContainerStyle={{

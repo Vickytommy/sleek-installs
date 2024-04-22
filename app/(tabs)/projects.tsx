@@ -11,8 +11,9 @@ const Projects = () => {
 
   return (
     <View style={[defaultStyles.container, styles.container]}>
-      <Text style={styles.text}>No Projects Yet!</Text>
-      <SleekButtomSheet ref={bottomSheetModalRef} />
+      {/* <Text style={styles.text}>No Projects Yet!</Text> */}
+      <Text style={styles.text}>Projects Screen</Text>
+      {/* <SleekButtomSheet ref={bottomSheetModalRef} /> */}
     </View>
   )
 }

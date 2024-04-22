@@ -62,13 +62,13 @@ const SegmentedControl: React.FC<SegmentedControlProps> = React.memo(
             styles.activeBox,
           ]}
         />
-        {options.map((option) => {
+        {options.map((option, index) => {
           return (
             <TouchableOpacity
               onPress={() => {
                 onOptionPress?.(option);
               }}
-              key={option}
+              key={index}
               style={[
                 {
                   width: itemWidth,

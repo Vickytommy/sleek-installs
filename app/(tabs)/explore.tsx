@@ -7,6 +7,7 @@ import { Stack } from 'expo-router';
 import ExploreHeader from '@/components/ExploreHeader';
 import PoolListings from '@/components/PoolListings';
 import listingsData from '@/assets/data/pool-listings.json';
+import { defaultStyles } from '@/constants/Styles';
 
 
 
@@ -37,14 +38,6 @@ const pool =
 
 
 
-
-
-
-
-
-
-
-
 const Explore = () => {
 	const colorScheme = useColorScheme();
 	const styles = getStyles(colorScheme!);
@@ -56,14 +49,21 @@ const Explore = () => {
     setCategory(category);
   }
 
+  
   return (
-    <View style={styles.container}>
-      <Stack.Screen options={{
-        header: () => <ExploreHeader onCategoryChanged={onDataChanged}/>
-      }} />
-      <PoolListings listings={items} category={category}/>
+    <View style={[defaultStyles.container, { width: '100%', height: '100%', justifyContent: 'center', alignItems: 'center', backgroundColor: '#efefef'}]}>
+      <Text style={styles.text}>Explore Screen</Text>
     </View>
   )
+
+  // return (
+  //   <View style={styles.container}>
+  //     <Stack.Screen options={{
+  //       header: () => <ExploreHeader onCategoryChanged={onDataChanged}/>
+  //     }} />
+  //     <PoolListings listings={items} category={category}/>
+  //   </View>
+  // )
 }
 
 export default Explore;
@@ -77,6 +77,10 @@ const getStyles = (colorScheme: ColorScheme) => {
 			backgroundColor: Colors[colorScheme ?? 'light'].gray900,
 			// padding: 20,
 			// paddingTop: 25
-		}
+		},
+    text: {
+      fontFamily: 'mon-sb',
+      fontSize: 16
+    }
   })
 }
