@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import React, { useCallback, useEffect, useMemo, useRef } from 'react';
+import React, { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { defaultStyles } from '@/constants/Styles';
 import { BottomSheetModal, BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 // import BottomSheet from '@/components/CustomBottomSheet';
@@ -17,13 +17,16 @@ const Add = () => {
   const routeName = route.name;
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
 
+  const [sheetDissmissed, setSheetDismissed] = useState(false);
+
   const handleConnectToBuilder = () => {
-    router.push('/(tabs)/community');
+    router.push('/(tabs)/account');
   }
-  useEffect(() => {
+  useLayoutEffect(() => {
     const unsubscribe = navigation.addListener('focus', () => {
       console.log('Route is ADD', routeName)
       handleOpenSheet();
+      // router.push('/(tabs)/home')
     });
 
     return unsubscribe;
@@ -39,24 +42,30 @@ const Add = () => {
   }
 
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <SleekButtomSheet snap={0} ref={bottomSheetModalRef}>
-        <View style={styles.contentContainer}>
-        <TouchableOpacity style={[defaultStyles.btn, { marginBottom: 10 }]} onPress={handleCloseSheet}>
-            <Text style={defaultStyles.btnText}>New Project</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={defaultStyles.btn} onPress={handleCloseSheet}>
-            <Text style={defaultStyles.btnText}>Speak to a Builder</Text>
-        </TouchableOpacity>
-      </View>
-      </SleekButtomSheet>
-      <View>
-        <TouchableOpacity style={defaultStyles.btn} onPress={handleOpenSheet}>
-          <Text style={defaultStyles.btnText}>New Project</Text>
-        </TouchableOpacity>
-      </View>
+    <View style={[defaultStyles.container, styles.container]}>
+      <Text style={styles.text}>New Project Screen</Text>
     </View>
   )
+
+  // return (
+  //   <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+  //     <SleekButtomSheet snap={0} ref={bottomSheetModalRef}>
+  //       <View style={styles.contentContainer}>
+  //       <TouchableOpacity style={[defaultStyles.btn, { marginBottom: 10 }]} onPress={handleCloseSheet}>
+  //           <Text style={defaultStyles.btnText}>New Project</Text>
+  //       </TouchableOpacity>
+  //       <TouchableOpacity style={defaultStyles.btn} onPress={handleCloseSheet}>
+  //           <Text style={defaultStyles.btnText}>Speak to a Builder</Text>
+  //       </TouchableOpacity>
+  //     </View>
+  //     </SleekButtomSheet>
+  //     <View>
+  //       <TouchableOpacity style={defaultStyles.btn} onPress={handleOpenSheet}>
+  //         <Text style={defaultStyles.btnText}>New Project</Text>
+  //       </TouchableOpacity>
+  //     </View>
+  //   </View>
+  // )
 }
 
 export default Add;

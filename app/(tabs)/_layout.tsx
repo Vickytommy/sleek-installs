@@ -69,7 +69,6 @@ export default function TabLayout() {
           name="add" 
           options={{
             headerShown: false,
-            
             title: 'Add',
             tabBarLabel: '',
             tabBarLabelStyle: {

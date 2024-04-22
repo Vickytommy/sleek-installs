@@ -40,7 +40,7 @@ const Home = () => {
 			// 	paddingTop: top
 			// },
 			drawerContentStyle: {
-				backgroundColor: Colors.light.white,
+				backgroundColor: Colors.light.background,
 			},
 			drawerItemStyle: {
 				// borderWidth: 4,

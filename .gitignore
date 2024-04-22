@@ -8,8 +8,12 @@ node_modules/
 dist/
 web-build/
 
+# Android & iOS
+android/
+ios/
+
 # assets
-assets/images
+# assets/images
 
 # Native
 *.orig.*

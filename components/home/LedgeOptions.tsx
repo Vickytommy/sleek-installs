@@ -135,7 +135,7 @@ const LedgeOptions = (Props: any) => {
   }
   
   const handleConnectToBuilder = () => {
-    router.push('/(tabs)/community');
+    router.push('/(tabs)/account');
   }
 
   const handleCloseSheet = () => {
